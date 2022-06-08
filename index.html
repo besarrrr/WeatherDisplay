@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <title>Weather Dashboard</title>
+</head>
+<body class="flex-column min-100-vh">
+
+    <header class="hero">
+        <h1 class="app-title"><i class="fas fa-broadcast-tower" ></i> Weather Dashboard <i class="fas fa-broadcast-tower" ></i></h1>
+    </header>
+
+    <main class="container">
+
+        <div class="row">
+
+        <div class="col-3">
+
+            <div class="searchbutton">
+            <h3 class="card-header"><strong>Search By City:</strong></h3>
+            <form id="user-form" class="card-body">
+                <input name="city" id="city" type="text" autofocus="true" class="form-input" />
+                <br>
+                <button type="submit" class="btn">Search</button>
+            </form>
+        </div>
+            <div class="popular-cities">
+                <ul class="list-view">
+                
+                 <button type="submit" class="btn" id="denver">Denver</button>
+                 <button type="submit" class="btn" id="sandiego">San Diego</button>
+                 <button type="submit" class="btn" id="austin">Austin</button>
+                 <button type="submit" class="btn" id="boston">Boston</button>
+                 <button type="submit" class="btn" id="newyork">New York City</button>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-9">
+
+            <div class="col-12">
+                <h2>City</h2>
+                <div id="city-container" class="list-group"> </div>
+            </div>
+            
+            <div class="col-12">
+                <h3 class="forcast">5-Day forcast</h2>
+                <div id="forcast-container" class="forcast-list-group"> </div>
+            </div>
+        </div>
+        </main>
+
+
+    </main>
+
+    <script src="./assets/js/homepage.js"></script>
+</body>
+</html>

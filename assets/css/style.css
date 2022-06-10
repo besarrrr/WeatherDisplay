@@ -41,5 +41,11 @@ header {
  }
 
  #titleid {
-     font-size: larger;
+     font-size: 1.6rem;
+     font-weight: bold;
+     
+ }
+
+ #todayweather {
+    font-size: 1.3rem;
  }

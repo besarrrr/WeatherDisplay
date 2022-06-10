@@ -41,29 +41,39 @@ function getCityInfo (cityname) {
 var displayweather = function (data) {
 
     var cityname = data.city.name
-    console.log(cityname );
-
-    var temp = kelvintofah(data.list[0].feels_like)
-    console.log(temp);
-
-    console.log(data.city.name );
-    console.log(data.city.name );
-    console.log(data.city.name );
+    var temp = kelvintofah(data.list[0].main.feels_like)
+    var wind = data.list[0].wind.speed
+    var humidity = data.list[0].main.humidity
+    var description = data.list[0].weather[0].description
 
     var titleEl = document.createElement("p");
-    titleEl.textContent = cityname;
+    var currentTime = moment().format('dddd, MMMM Do YYYY')
+    titleEl.textContent = cityname + "," + " " + currentTime ;
     titleEl.setAttribute('id','titleid')
-    cityContainerEl.appendChild(titleEl)
+    
+    var tempEl = document.createElement("p");
+    tempEl.innerHTML = "Temp: " + Math.round(temp) + " F" ;
+    tempEl.setAttribute('id','todayweather')
 
+    var windEl = document.createElement("p");
+    windEl.innerHTML = "Wind Speed: " + wind + " MPH"
+    windEl.setAttribute('id','todayweather')
 
-}
+    var humidityEl = document.createElement("p");
+    humidityEl.innerHTML = "Humidity: " + humidity + "%"
+    humidityEl.setAttribute('id','todayweather')
+
+    var descriptionEl = document.createElement("p");
+    descriptionEl.innerHTML = "Current Reports: " + description
+    descriptionEl.setAttribute('id','todayweather')
+
+    cityContainerEl.append(titleEl, tempEl, windEl, humidityEl, descriptionEl)
+} 
 
 var fivedayforecast = function (data) {
 
     
 }
-
-
 
 
 var kelvintofah = function (K) {

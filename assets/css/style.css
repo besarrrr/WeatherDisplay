@@ -2,7 +2,7 @@
 
 header {
     text-align: center;
-    border: 3px solid rgb(0, 208, 255);
+    border: 3px solid rgb(0, 123, 255);
     background-color: aquamarine;
     padding: 10px 10px;
     margin-bottom: 25px;
@@ -12,7 +12,7 @@ header {
  margin-left: 35px;
  padding: 0 0 0 0;
  height: 100vh;
-
+ width: 100%;
 }
 
 .form-input {
@@ -48,4 +48,14 @@ header {
 
  #todayweather {
     font-size: 1.3rem;
+ }
+
+ .seccontainer {
+    padding: 0;
+ }
+
+ .forecastdays {
+    margin-left: 15px;
+    background-color:rgb(0, 123, 255);
+    color: white;
  }

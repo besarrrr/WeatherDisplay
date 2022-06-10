@@ -27,7 +27,7 @@ function getCityInfo (cityname) {
         if (response.ok){
         return response.json().then(function(data) {
             console.log(data);
-            //run a function to display here once it is created
+           displayweather(data);
           });
         } else {
             alert('Error: City Not Found');
@@ -38,6 +38,38 @@ function getCityInfo (cityname) {
       });
 }
 
+var displayweather = function (data) {
+
+    var cityname = data.city.name
+    console.log(cityname );
+
+    var temp = kelvintofah(data.list[0].feels_like)
+    console.log(temp);
+
+    console.log(data.city.name );
+    console.log(data.city.name );
+    console.log(data.city.name );
+
+    var titleEl = document.createElement("p");
+    titleEl.textContent = cityname;
+    titleEl.setAttribute('id','titleid')
+    cityContainerEl.appendChild(titleEl)
+
+
+}
+
+var fivedayforecast = function (data) {
+
+    
+}
+
+
+
+
+var kelvintofah = function (K) {
+   return 1.8*(K-273) + 32 
+    
+}
 
 
 userFormEl.addEventListener("submit", formSubmitHandler);

@@ -39,3 +39,7 @@ header {
     padding-left: 20px;
     padding-right: 20px;
  }
+
+ #titleid {
+     font-size: larger;
+ }

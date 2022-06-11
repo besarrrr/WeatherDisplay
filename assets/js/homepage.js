@@ -20,6 +20,14 @@ var formSubmitHandler = function(event) {
         getCityInfo(cityname);
         cityContainerEl.textContent = "";
         cityInputEl.value = "";
+
+        day2El.textContent = "";
+        day3El.textContent = "";
+        day4El.textContent = "";
+        day5El.textContent = "";
+        day6El.textContent = "";
+
+
     } else {
         alert("Please enter a valid city")
     }
@@ -214,49 +222,7 @@ var displayweather = function (data) {
     day6El.append(humidity6El)
 
 } 
-
-var fivedayforecast = function (data) {
-
-    for(var i=0; i < data.length; i+8) {
-
-        var date2 = moment().add(1, 'days').calendar();
-        var temp2 = kelvintofah(data.list[i].main.feels_like)
-        var wind2 = data.list[i].wind.speed
-        var humidity2 = data.list[i].main.humidity
-        var description2 = data.list[i].weather[0].main
-       
-        if(description==="Clouds"){
-            imgtag.attr("src", "https://img.icons8.com/color/48/000000/cloud.png")
-        } else if(skyconditions==="Clear"){
-            imgtag.attr("src", "https://img.icons8.com/color/48/000000/summer.png")
-        }else if(skyconditions==="Rain"){
-            imgtag.attr("src", "https://img.icons8.com/color/48/000000/rain.png")
-        }
-
-        var dateEl = document.createElement("p");
-        dateEl.innerHTML = date2
-
-        var descriptionEl = document.createElement("p");
-        descriptionEl.innerHTML = "Current Reports: " + description2
-
-        var tempEl = document.createElement("p");
-        tempEl.innerHTML = "Temp: " + Math.round(temp2) + " F" ;
-
-        var humidityEl = document.createElement("p");
-        humidityEl.innerHTML = "Humidity: " + humidity2 + "%"
-
-    
-        day2El.append(dateEl, descriptiomEl, tempEl, humidityEl)
-        day3El.append(dateEl, descriptiomEl, tempEl, humidityEl)
-        day4El.append(dateEl, descriptiomEl, tempEl, humidityEl)
-        day5El.append(dateEl, descriptiomEl, tempEl, humidityEl)
-        day6El.append(dateEl, descriptiomEl, tempEl, humidityEl)
-        
-    }
-    
-}   
-
-
+ 
 var kelvintofah = function (K) {
    return 1.8*(K-273) + 32 
     

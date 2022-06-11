@@ -70,6 +70,7 @@ header {
 
  .firstcontainer {
     background-image: url(../images/istockphoto-531889697-612x612-1.jpg);
+    background-size: cover;
  }
 
  

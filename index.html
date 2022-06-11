@@ -22,18 +22,19 @@
 
         <div class="row h-100">
 
-        <div class="col-3">
+            <div class="col-3">
 
-            <div class="searchbutton">
-            <h3 class="card-header"><strong>Search By City:</strong></h3>
-            <form id="user-form" class="card-body">
-                <label class="form-label" for="username">City Name</label>
-                <input name="city" id="city" type="text" autofocus="true" class="form-input" />
-                <br>
-                <button type="submit" class="btn">Search</button>
-            </form>
-        </div>
-            <div class="popular-cities">
+                    <div class="searchbutton">
+                    <h3 class="card-header"><strong>Search By City:</strong></h3>
+                     <form id="user-form" class="card-body">
+                    <label class="form-label" for="username">City Name</label>
+                     <input name="city" id="city" type="text" autofocus="true" class="form-input" />
+                         <br>
+                    <button type="submit" class="btn">Search</button>
+                     </form>
+                    </div>
+
+                 <div class="popular-cities">
                 <ul class="list-view">
                 
                  <button type="submit" class="btn" id="denver">Denver</button>
@@ -42,19 +43,17 @@
                  <button type="submit" class="btn" id="boston">Boston</button>
                  <button type="submit" class="btn" id="newyork">New York City</button>
                 </ul>
+                 </div>
             </div>
-        </div>
 
-        <div class="col-9">
+            <div class="col-9">
 
-            <div class="col-12 h-50 border border-dark firstcontainer">
+                <div class="col-12 h-50 border border-dark firstcontainer">
                 <h2><span id="city-search-term"></span></h2>
-                <div id="city-container" class="list-group "> 
-                    
+                <div id="city-container" class="list-group "> </div>
                 </div>
-            </div>
             
-            <div class="col-12 h-50 seccontainer">
+                 <div class="col-12 h-50 seccontainer">
                 <h3 class="forcast">5-Day Forecast:</h2>
                 <div id="containerfive" class="forcast-list-group d-flex forecast row flex-fill"> 
 
@@ -65,10 +64,10 @@
                         <div class="col border forecastdays"  id="day6"> </div>
                         
                 </div>
+                 </div>
             </div>
-        </div>
-        </main>
 
+        </div>
 
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>

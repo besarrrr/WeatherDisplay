@@ -2,6 +2,13 @@ var userFormEl = document.querySelector('#user-form');
 var cityInputEl = document.querySelector("#city");
 var cityContainerEl = document.querySelector("#city-container");
 var citySearchTerm = document.querySelector("#city-search-term");
+
+var day2El = document.querySelector("#day2")
+var day3El = document.querySelector("#day3")
+var day4El = document.querySelector("#day4")
+var day5El = document.querySelector("#day5")
+var day6El = document.querySelector("#day6")
+
 var key = "fb2f9559d74a156a776b176fddac490c";
 
 var formSubmitHandler = function(event) {
@@ -26,7 +33,7 @@ function getCityInfo (cityname) {
     .then(function(response){
         if (response.ok){
         return response.json().then(function(data) {
-            console.log(data);
+            console.log(data)
            displayweather(data);
           });
         } else {
@@ -37,6 +44,7 @@ function getCityInfo (cityname) {
         alert("Unable to connect to weather app");
       });
 }
+
 
 var displayweather = function (data) {
 
@@ -71,10 +79,45 @@ var displayweather = function (data) {
 } 
 
 var fivedayforecast = function (data) {
-   // moment().add(1, 'days').calendar(); 
+
+    for(var i=0; i < data.length; i+8) {
+
+        var date2 = moment().add(1, 'days').calendar();
+        var temp2 = kelvintofah(data.list[i].main.feels_like)
+        var wind2 = data.list[i].wind.speed
+        var humidity2 = data.list[i].main.humidity
+        var description2 = data.list[i].weather[0].main
+       
+        if(description==="Clouds"){
+            imgtag.attr("src", "https://img.icons8.com/color/48/000000/cloud.png")
+        } else if(skyconditions==="Clear"){
+            imgtag.attr("src", "https://img.icons8.com/color/48/000000/summer.png")
+        }else if(skyconditions==="Rain"){
+            imgtag.attr("src", "https://img.icons8.com/color/48/000000/rain.png")
+        }
+
+        var dateEl = document.createElement("p");
+        dateEl.innerHTML = date2
+
+        var descriptionEl = document.createElement("p");
+        descriptionEl.innerHTML = "Current Reports: " + description2
+
+        var tempEl = document.createElement("p");
+        tempEl.innerHTML = "Temp: " + Math.round(temp2) + " F" ;
+
+        var humidityEl = document.createElement("p");
+        humidityEl.innerHTML = "Humidity: " + humidity2 + "%"
+
     
+        day2El.append(dateEl, descriptiomEl, tempEl, humidityEl)
+        day3El.append(dateEl, descriptiomEl, tempEl, humidityEl)
+        day4El.append(dateEl, descriptiomEl, tempEl, humidityEl)
+        day5El.append(dateEl, descriptiomEl, tempEl, humidityEl)
+        day6El.append(dateEl, descriptiomEl, tempEl, humidityEl)
+        
+    }
     
-}
+}   
 
 
 var kelvintofah = function (K) {

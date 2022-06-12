@@ -13,7 +13,6 @@ var key = "fb2f9559d74a156a776b176fddac490c";
 
 var formSubmitHandler = function(event) {
     event.preventDefault();
-
     var cityname = cityInputEl.value.trim();
 
     if (cityname) {
@@ -31,7 +30,10 @@ var formSubmitHandler = function(event) {
     } else {
         alert("Please enter a valid city")
     }
+
+    saveLastSearchedCity(cityname);
 };
+
 
 function getCityInfo (cityname) {
 
@@ -51,6 +53,7 @@ function getCityInfo (cityname) {
     .catch(function(error) {
         alert("Unable to connect to weather app");
       });
+
 }
 
 
@@ -226,6 +229,16 @@ var displayweather = function (data) {
 var kelvintofah = function (K) {
    return 1.8*(K-273) + 32 
     
+}
+
+
+// Local storage
+function saveLastSearchedCity(cityName) {
+    localStorage.setItem('lastSearchedCity', cityName);
+}
+
+function getLastSearchedCity() {
+    return localStorage.getItem('lastSearchedCity');
 }
 
 

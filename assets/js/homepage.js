@@ -2,6 +2,7 @@ var userFormEl = document.querySelector('#user-form');
 var cityInputEl = document.querySelector("#city");
 var cityContainerEl = document.querySelector("#city-container");
 var citySearchTerm = document.querySelector("#city-search-term");
+var savedSearchesEl = document.querySelector('#saved-searches')
 
 var day2El = document.querySelector("#day2")
 var day3El = document.querySelector("#day3")
@@ -26,12 +27,17 @@ var formSubmitHandler = function(event) {
         day5El.textContent = "";
         day6El.textContent = "";
 
-
     } else {
         alert("Please enter a valid city")
     }
 
-    saveLastSearchedCity(cityname);
+   saveLastSearchedCity(cityname);
+
+    var citysearchEl = document.createElement('button');
+    citysearchEl.setAttribute("class", "btn")
+    citysearchEl.textContent = cityname
+    savedSearchesEl.append(citysearchEl)
+   
 };
 
 
@@ -232,10 +238,11 @@ var kelvintofah = function (K) {
 }
 
 
-// Local storage
+//Local storage
 function saveLastSearchedCity(cityName) {
-    localStorage.setItem('lastSearchedCity', cityName);
-}
+ localStorage.setItem('lastSearchedCity', cityName);
+ }
+
 
 function getLastSearchedCity() {
     return localStorage.getItem('lastSearchedCity');

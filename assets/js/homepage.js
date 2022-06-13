@@ -43,7 +43,7 @@ var formSubmitHandler = function(event) {
 
 function getCityInfo (cityname) {
 
-    var apiurl = "http://api.openweathermap.org/data/2.5/forecast?q="+cityname+"&appid="+key;
+    var apiurl = "https://api.openweathermap.org/data/2.5/forecast?q="+cityname+"&appid="+key;
 
     fetch(apiurl)
     .then(function(response){

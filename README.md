@@ -1,7 +1,8 @@
-# WeatherDisplay
+# Weather Display
 
-The task is to 
+The task was to create a website that allows users to look up the weather in whatever city they choose. Essentially, the website uses third-party APIs to retrieve weather data for cities. Functionally, a user enters the city they desire and the output is the weather for that day and the weather report for the next 5 days after. 
 
+<br>
 
 ## Acceptance Criteria
 
@@ -17,20 +18,37 @@ THEN I am presented with a 5-day forecast that displays the date, an icon repres
 WHEN I click on a city in the search history<br>
 THEN I am again presented with current and future conditions for that city
 
+<br>
 
 ## Work Done
+ * Used a third party API to retrieve weather data for cities. Then used JAVASCIPT to make that information into an object to then diaplay on the website using DOM elements.
 
+* Used CSS to style and fromat the webpage.
 
+* Used open source projects such as Jquery, Bootstrap, and MomentJS to aid in my coding
 
+<br>
 
 ## Deployed Site
+<br>
+
+https://besarrrr.github.io/WeatherDisplay/
 
 
+<br>
 
 ## Github Repository
 
+<br>
+
 https://github.com/besarrrr/WeatherDisplay 
 
+
+<br>
+
 ## Website Image
+
+<br>
+
 
 ![Sample image](./assets/images/Screenshot%202022-06-12%20213446.png)

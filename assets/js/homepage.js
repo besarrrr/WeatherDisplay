@@ -35,11 +35,6 @@ var formSubmitHandler = function(event) {
 
    saveLastSearchedCity(cityname);
 
-   // var citysearchEl = document.createElement('button');
-   // citysearchEl.setAttribute("class", "btn")
-  //  citysearchEl.textContent = cityname
-   // savedSearchesEl.append(citysearchEl)
-   
 };
 
 function createmenu (){
@@ -85,6 +80,12 @@ function getCityInfo (cityname) {
 var displayweather = function (data) {
 
     cityContainerEl.innerHTML = "";
+    day2El.innerHTML = "";
+    day3El.innerHTML = "";
+    day4El.innerHTML = "";
+    day5El.innerHTML = "";
+    day6El.innerHTML = "";
+
 
     //main container
     var cityname = data.city.name

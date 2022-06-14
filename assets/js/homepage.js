@@ -76,6 +76,7 @@ function getCityInfo (cityname) {
 
 }
 
+//cdisplay data
 
 var displayweather = function (data) {
 

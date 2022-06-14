@@ -3,6 +3,8 @@ var cityInputEl = document.querySelector("#city");
 var cityContainerEl = document.querySelector("#city-container");
 var citySearchTerm = document.querySelector("#city-search-term");
 var savedSearchesEl = document.querySelector('#saved-searches')
+var pastsearches = JSON.parse(localStorage.getItem("lastSearchedCity"))||[]
+console.log(pastsearches)
 
 var day2El = document.querySelector("#day2")
 var day3El = document.querySelector("#day3")
@@ -15,7 +17,7 @@ var key = "fb2f9559d74a156a776b176fddac490c";
 var formSubmitHandler = function(event) {
     event.preventDefault();
     var cityname = cityInputEl.value.trim();
-
+   
     if (cityname) {
         getCityInfo(cityname);
         cityContainerEl.textContent = "";
@@ -33,12 +35,29 @@ var formSubmitHandler = function(event) {
 
    saveLastSearchedCity(cityname);
 
-    var citysearchEl = document.createElement('button');
-    citysearchEl.setAttribute("class", "btn")
-    citysearchEl.textContent = cityname
-    savedSearchesEl.append(citysearchEl)
+   // var citysearchEl = document.createElement('button');
+   // citysearchEl.setAttribute("class", "btn")
+  //  citysearchEl.textContent = cityname
+   // savedSearchesEl.append(citysearchEl)
    
 };
+
+function createmenu (){
+    savedSearchesEl.innerHTML = "";
+    for(var i = 0; i < pastsearches.length; i++){
+        var citysearchEl = document.createElement('button');
+        citysearchEl.setAttribute("class", "btn");
+        citysearchEl.textContent = pastsearches[i];
+        citysearchEl.setAttribute("value", pastsearches[i])
+        citysearchEl.onclick = function (){
+            getCityInfo(this.value)
+        }
+        savedSearchesEl.append(citysearchEl)
+    }
+
+
+}
+createmenu();
 
 
 function getCityInfo (cityname) {
@@ -64,6 +83,8 @@ function getCityInfo (cityname) {
 
 
 var displayweather = function (data) {
+
+    cityContainerEl.innerHTML = "";
 
     //main container
     var cityname = data.city.name
@@ -239,8 +260,12 @@ var kelvintofah = function (K) {
 
 
 //Local storage
-function saveLastSearchedCity(cityName) {
- localStorage.setItem('lastSearchedCity', cityName);
+function saveLastSearchedCity(cityname) {
+    if(pastsearches.indexOf(cityname)=== -1) {
+        pastsearches.unshift(cityname)
+        localStorage.setItem('lastSearchedCity', JSON.stringify(pastsearches));
+    }
+   createmenu();
  }
 
 
